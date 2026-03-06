@@ -30,8 +30,8 @@
 
     <header>
         <nav>
-            <div class="navbar bg-base-100 shadow-sm px-10">
-                <div class="flex-1 flex ">
+            <div class="navbar bg-base-100 shadow-sm px-10 flex flex-col md:flex-row gap-5">
+                <div class="flex-1 flex justify-center items-center sm:justify-start flex-col sm:flex-row gap-3">
                     <div class="w-10 rounded-full">
                         <img alt="Tailwind CSS Navbar component" src="./assets/github-logo.png" />
                     </div>
@@ -60,7 +60,7 @@
 
     <main class=" bg-[#F8FAFC]">
 
-        <section class=" max-w-8/12 mx-auto pt-24">
+        <section class="max-w-11/12 md:max-w-10/12  xl:max-w-8/12 mx-auto pt-24">
 
 
             <!-- all btns  -->
@@ -79,11 +79,11 @@
             <!-- total issues  -->
             <div class="  card card-body shadow-sm bg-white mt-10">
 
-                <div class="flex gap-4 justify-between">
+                <div class="flex flex-col md:flex-row gap-4 justify-between">
 
 
                     <div class="flex gap-2">
-                        <div class="w-12 bg-purple-100 rounded-full p-2"> <img src="./assets/Aperture.png" alt=""></div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-full p-2"> <img src="./assets/Aperture.png" alt=""></div>
 
                         <div class="">
                             <h4 class="font-semibold text-xl">50 Issues</h4>
@@ -112,7 +112,7 @@
             <div class="p-8 bg-[#ffffff30] shadow-lg ">
 
 
-                <div class="grid grid-cols-4 gap-4">
+                <div class="grid grid-cols-1   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 
                     <!-- card -->
                     <div class=" bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
