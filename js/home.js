@@ -1,5 +1,14 @@
 // console.log("home");
 
+
+const createElement = (arr) => {
+
+
+    const htmlElement = arr.map(elem => `<span class="text-xs bg-red-100 text-gray-600 px-2 py-1 rounded-full"> ${elem} </span>`)
+    return htmlElement.join(" ")
+
+}
+
 function togglingIssue(id) {
 
 
@@ -51,38 +60,66 @@ const loadAllIssue = async () => {
 
 
 
+
+
+
 const displayAllIssue = (issues) => {
 
-    
+
     const issueTab = document.getElementById("issue-card-container");
     issueTab.innerHTML = ""
 
+
+
+    // 
+
+
+
+
     issues.forEach(issue => {
 
-        console.log(issue);
-        
+        // console.log(issue.labels);
+
 
         const div = document.createElement("div");
-        div.className = " bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden"
+
+        const priorityColor = {
+
+            high: "bg-red-100 text-red-500",
+            medium: "bg-yellow-100 text-yellow-500",
+            low: "bg-green-100 text-green-500"
+        }
+
+
+
+            div.className = " bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden"
 
         div.innerHTML = `
         
-            <div class="p-4  border-t-4 border-green-600">
+            <div class="p-4  border-t-6  ${issue.status === "open" ? "border-green-600" : "border-purple-600"}">
 
                                 <!-- Header -->
                                 <div class="flex justify-between items-start">
 
 
-                                    <div class="w-6 h-6 bg-green-100  rounded-full "> 
-
-
-                                        <img src="./assets/Open-Status.png" alt="">
+                                    <div id = "status-container">
+                                    
+                                        ${issue.status === "open" ?
+                                            `<div  class="w-6 h-6 bg-green-100  rounded-full ">
+                                                <img src="./assets/Open-Status.png" alt="">
+                                            </div>`
+                                            :
+                                            `<div  class="w-6 h-6 bg-purple-100  rounded-full ">
+                                                <img src="./assets/Closed-Status.png" alt="">
+                                            </div>`
+                                        }
+                                                                       
                                     </div>
 
 
 
 
-                                    <span class="text-xs font-semibold bg-red-100 text-black-500 px-2 py-1 rounded-full">
+                                    <span class="text-xs font-semibold ${priorityColor[issue.priority]} px-2 py-1 rounded-full">
                                         ${issue.priority}
                                     </span>
 
@@ -98,13 +135,9 @@ const displayAllIssue = (issues) => {
 
                                 <!-- Tags -->
                                 <div class="flex gap-2 mt-3">
-                                    <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">
-                                        BUG
-                                    </span>
 
-                                    <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
-                                        HELP WANTED
-                                    </span>
+                                    ${createElement(issue.labels)}
+                                    
                                 </div>
 
 
@@ -122,6 +155,8 @@ const displayAllIssue = (issues) => {
                             </div>
         
         `
+
+
 
         issueTab.appendChild(div)
     });
