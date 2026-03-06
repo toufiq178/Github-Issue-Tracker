@@ -1,16 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1> this is home</h1>
+    <title>home | GitHub issue Tracker</title>
 
+    <!-- fonts connect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- tailwind css & daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+
+    <header>
+        <nav>
+            <div class="navbar bg-base-100 shadow-sm px-10">
+                <div class="flex-1 flex ">
+                    <div class="w-10 rounded-full">
+                        <img alt="Tailwind CSS Navbar component" src="./assets/github-logo.png" />
+                    </div>
+                    <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
+                </div>
+                <div class="flex items-center justify-between   gap-3">
+                    <label class="input">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </g>
+                        </svg>
+                        <input type="search" required placeholder="Search issues..." />
+                    </label>
+
+                    <!-- Button -->
+                    <button class="bg-primary btn text-white">
+                        + New Issue
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class=" bg-[#F8FAFC]">
+
+        <section class=" max-w-8/12 mx-auto pt-24">
+
+
+            <!-- all btns  -->
+            <div class="  card card-body shadow-sm bg-white">
+
+                <div class="flex gap-4">
+
+                    <button class="btn">All</button>
+                    <button class="btn">Open</button>
+                    <button class="btn">Closed</button>
+                </div>
+
+            </div>
+
+
+            <!-- total issues  -->
+            <div class="  card card-body shadow-sm bg-white mt-10">
+
+                <div class="flex gap-4 justify-between">
+
+
+                    <div class="flex gap-2">
+                        <div class="w-12 bg-purple-100 rounded-full p-2"> <img src="./assets/Aperture.png" alt=""></div>
+
+                        <div class="">
+                            <h4 class="font-semibold text-xl">50 Issues</h4>
+                            <p class="text-{#64748B}">Track and manage your project issues</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-5">
+
+                        <div class="flex items-center justify-center gap-2">
+                            <div aria-label="success" class="status status-success"></div>
+                            <span>Open</span>
+                        </div>
+
+                        <div class="flex items-center justify-center gap-2">
+                            <div aria-label="success" class="status status-primary"></div>
+                            <span>Closed</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="p-8 bg-[#ffffff30] shadow-lg ">
+
+
+                <div class="grid grid-cols-4 gap-4">
+
+                    <!-- card -->
+                    <div class=" bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+    
+                        
+    
+                        <div class="p-4  border-t-4 border-green-600">
+    
+                            <!-- Header -->
+                            <div class="flex justify-between items-start">
+    
+                                
+                                    <div
+                                        class="w-6 h-6 bg-green-100  rounded-full ">
+                                        <img src="./assets/Open-Status.png" alt="">
+                                    </div>
+    
+                                    
+                               
+    
+                                <span class="text-xs font-semibold bg-red-100 text-red-500 px-2 py-1 rounded-full">
+                                    HIGH
+                                </span>
+    
+                            </div>
+    
+                            <h3 class="font-semibold text-gray-800 text-sm mt-3 ">
+                                        Fix Navigation Menu On Mobile Devices
+                                    </h3>
+                            <!-- Description -->
+                            <p class="text-sm text-gray-500 mt-2 line-clamp-2">
+                                The navigation menu doesn't collapse properly on mobile devices
+                            </p>
+    
+                            <!-- Tags -->
+                            <div class="flex gap-2 mt-3">
+                                <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">
+                                    BUG
+                                </span>
+    
+                                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">
+                                    HELP WANTED
+                                </span>
+                            </div>
+    
+                            <!-- Footer -->
+                            <div class="border-t mt-4 pt-2 text-xs text-gray-400 space-y-2">
+                                <p># 1 by john_doe</p>
+                                <p>1/15/2024</p>
+                            </div>
+    
+                        </div>
+    
+                    </div>
+                   
+
+                </div>
+
+
+
+
+            </div>
+
+        </section>
+    </main>
 
     <!-- js connect -->
-     <script src="./js/home.js"></script>
+    <script src="./js/home.js"></script>
 </body>
+
 </html>

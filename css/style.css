@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
-.geist-font {
+/* .geist-font {
+  font-family: "Geist", sans-serif;
+} */
+
+*{
+  
   font-family: "Geist", sans-serif;
 }

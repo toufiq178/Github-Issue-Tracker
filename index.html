@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign in | GitHub issue Tracker</title>
 
     <!-- fonts connect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,10 +28,11 @@
 
     <main class=" max-w-11/12 mx-auto h-screen flex justify-center items-center ">
 
-        <section >
+        <section>
 
 
-            <fieldset class="fieldset bg-white shadow-md space-y-3 border-base-300 rounded-box w-sm md:w-md  p-7 border p-4">
+            <fieldset
+                class="fieldset bg-white shadow-md space-y-1 border-base-300 rounded-box w-sm md:w-md  p-7 border p-4">
                 <div class="text-center space-y-5">
                     <img class="flex justify-self-center" src="./assets/github-logo.png" alt="">
 
@@ -50,6 +51,19 @@
                 </div>
 
                 <button id="sign-in-btn" class="btn btn-primary mt-4">Sign In</button>
+
+                <div class="flex items-center gap-3 my-6">
+                    <hr class="flex-grow border-gray-300">
+                    <span class="text-gray-500 font-medium">OR</span>
+                    <hr class="flex-grow border-gray-300">
+                </div>
+
+                <div class="bg-gray-100 p-6 rounded-lg text-center">
+                    <p class="text-gray-500 mb-3">Demo Credentials:</p>
+
+                    <p><span class="font-semibold">Username:</span> admin</p>
+                    <p><span class="font-semibold">Password:</span> admin123</p>
+                </div>
             </fieldset>
         </section>
     </main>
