@@ -12,51 +12,92 @@ const priorityColor = {
     low: "bg-green-100 text-green-500"
 }
 
-const labelsColor ={
+const labelsColor = {
 
-    "good first issue" : "bg-yellow-100 text-yellow-500",
-    "help wanted" : "bg-yellow-100 text-yellow-500",
-    documentation : "bg-yellow-100 text-yellow-500",
-    enhancement : "bg-green-100 text-green-500",
-    bug : "bg-red-100 text-red-500",
+    documentation: "bg-yellow-100 text-yellow-500",
+    enhancement: "bg-green-100 text-green-500",
+    bug: "bg-red-100 text-red-500",
 }
 
 
 
 const createElement = (arr) => {
 
-    const htmlElement = arr.map(elem => `<span class="text-xs ${labelsColor[elem]} px-2 py-1 rounded-full"> ${elem} </span>`)
+    const htmlElement = arr.map(elem => `<span class="text-xs ${labelsColor[elem] || "bg-gray-100 text-gray-500"} px-2 py-1 rounded-full"> ${elem} </span>`)
     return htmlElement.join(" ")
 
 }
 
 
+const loadingContainer = document.getElementById("loading-section");
+const allIssueContainer = document.getElementById("all-issue-container");
+
+const showLoading = () => {
+
+    loadingContainer.classList.remove("hidden")
+    allIssueContainer.innerHTML = ""
+
+    allIssueContainer.classList.add("hidden")
+}
+const hideLoading = () => {
+    
+    loadingContainer.classList.add("hidden")
+    allIssueContainer.classList.remove("hidden")
+}
+
+
+// function togglingIssue(id) {
+
+//     showLoading()
+
+//     const issueBtnContainer = document.querySelectorAll("#issue-btn-container  .btn")
+
+//     // console.log(issueBtnContainer);
+
+//     issueBtnContainer.forEach(btn => {
+
+//         btn.classList.remove("btn-primary")
+
+//         if (btn.id == id) {
+
+//             btn.classList.add("btn-primary")
+
+//         }
+//     });
+
+//     hideLoading()
+// }
+
 
 function togglingIssue(id) {
 
+    showLoading();
 
-    const issueBtnContainer = document.querySelectorAll("#issue-btn-container  .btn")
+    setTimeout(() => {
 
-    console.log(issueBtnContainer);
+        const issueBtnContainer = document.querySelectorAll("#issue-btn-container .btn");
 
-    issueBtnContainer.forEach(btn => {
+        issueBtnContainer.forEach(btn => {
+            btn.classList.remove("btn-primary");
 
-        btn.classList.remove("btn-primary")
+            if (btn.id == id) {
+                btn.classList.add("btn-primary");
+            }
+        });
 
-        if (btn.id == id) {
+        hideLoading();
 
-            btn.classList.add("btn-primary")
-
-        }
-    });
+    }, 300); 
 }
 
+
+// rendering issues
 function filterIssue(status) {
-    
+
     let filterIssue = []
 
     if (status === "all") {
-        
+
         filterIssue = allIssueData
 
     } else {
@@ -69,14 +110,34 @@ function filterIssue(status) {
 
 
 
+// const loadAllIssue = async () => {
+
+//     showLoading()
+
+//     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+//     const data = await res.json();
+
+//     hideLoading()
+
+//     allIssueData = data.data
+//     displayAllIssue(allIssueData)
+
+// }
+
 const loadAllIssue = async () => {
 
-    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
-    const data = await res.json();
+    showLoading();
 
-    allIssueData = data.data
-    displayAllIssue(allIssueData)
-    
+    setTimeout(async () => {
+        const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+        const data = await res.json();
+
+        hideLoading();
+
+        allIssueData = data.data;
+        displayAllIssue(allIssueData);
+    }, 2000);
+
 }
 
 
@@ -223,6 +284,7 @@ const displayAllIssue = (issues) => {
         allIssueContainer.appendChild(div)
     });
 
+
 }
 
 
@@ -272,9 +334,9 @@ const displayModalIssue = (modalIssue) => {
                                 ${modalIssue.description}
                             </p>
 
-                            <div class="bg-gray-100 px-6 py-4 flex justify-between items-center">
+                            <div class="bg-gray-100 px-6 py-4 ">
 
-                                <div class="flex gap-20">
+                                <div class="flex flex-col items-center sm:flex-row justify-between gap-5">
                                     <div>
                                         <p class="text-sm text-gray-500">Assignee:</p>
                                         <p class="font-semibold">${modalIssue.assignee}</p>
@@ -304,3 +366,27 @@ const displayModalIssue = (modalIssue) => {
 
 
 loadAllIssue()
+
+
+
+
+
+
+document.getElementById("search-btn").addEventListener("click" , async () => {
+    
+    const searchInput = document.getElementById("search-input");
+    const searchValue = searchInput.value.toLowerCase().trim();
+
+
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+    const data = await res.json();
+
+
+    const allData = data.data
+
+    console.log(allData);
+
+    displayAllIssue(allData) 
+    
+    
+})

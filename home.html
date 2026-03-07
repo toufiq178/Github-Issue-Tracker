@@ -46,12 +46,12 @@
                                 <path d="m21 21-4.3-4.3"></path>
                             </g>
                         </svg>
-                        <input type="search" required placeholder="Search issues..." />
+                        <input id="search-input" type="search" required placeholder="Search issues..." />
                     </label>
 
                     <!-- Button -->
-                    <button class="bg-primary btn text-white">
-                        + New Issue
+                    <button id="search-btn" class="bg-primary btn text-white">
+                        search
                     </button>
                 </div>
             </div>
@@ -129,6 +129,13 @@
                 <!-- issue container -->
                 <section class="p-8 bg-[#ffffff30] shadow-lg ">
 
+
+                    <section id="loading-section" class="  text-center py-30  hidden">
+    
+                       <span class="loading loading-spinner text-primary"> loading</span>
+    
+                    </section>
+
                     <!-- all issue container  -->
                     <section id="all-issue-container" 
                         class="grid grid-cols-1   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -192,25 +199,16 @@
 
                         </div> -->
 
-
+                        <!-- loading   -->
+                        
                     </section>
+                    
+                    
 
 
 
-                    <!-- all issue container  -->
-                    <section id="open-issue-container" class="grid grid-cols-1 hidden  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-    
-                       <h1>open issue  </h1>
-    
-                    </section>
 
-
-                    <!-- all issue container  -->
-                     <section id="closed-issue-container"  class="grid grid-cols-1 hidden  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-    
-                       <h1>closed issue  </h1>
-    
-                    </section>
+                    
 
                 </section>
 

@@ -18,7 +18,7 @@ document.getElementById("sign-in-btn").addEventListener("click" , function () {
     } else{
 
 
-        alert("no")
+        alert("Invalid")
     }
     
 })
