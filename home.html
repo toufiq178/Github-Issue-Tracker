@@ -68,9 +68,9 @@
 
                 <div id="issue-btn-container" class="flex gap-4">
 
-                    <button onclick="togglingIssue('all-btn')" id="all-btn" class="btn btn-primary">All</button>
-                    <button onclick="togglingIssue('open-btn')" id="open-btn" class="btn">Open</button>
-                    <button onclick="togglingIssue('closed-btn')" id="closed-btn" class="btn">Closed</button>
+                    <button onclick="togglingIssue('all-btn') ; filterIssue('all')" id="all-btn" class="btn btn-primary">All</button>
+                    <button onclick="togglingIssue('all-open') ; filterIssue('open')" id="all-open" class="btn">Open</button>
+                    <button onclick="togglingIssue('all-closed') ; filterIssue('closed') " id="all-closed" class="btn">Closed</button>
                 </div>
 
             </div>
@@ -79,7 +79,7 @@
             <div>
 
                 <!-- total issues  -->
-                <div class="  card card-body shadow-sm bg-white mt-10">
+                <section class="  card card-body shadow-sm bg-white mt-10">
 
                     <div class="flex flex-col md:flex-row gap-4 justify-between">
 
@@ -89,7 +89,7 @@
                                     alt=""></div>
 
                             <div class="">
-                                <h4 class="font-semibold text-xl">50 Issues</h4>
+                                <h4 id="all-Issues" class="font-semibold text-xl">0 Issues</h4>
                                 <p class="text-{#64748B}">Track and manage your project issues</p>
                             </div>
                         </div>
@@ -109,13 +109,28 @@
                         </div>
                     </div>
 
-                </div>
+                </section>
 
 
-                <div class="p-8 bg-[#ffffff30] shadow-lg ">
 
 
-                    <div id="issue-card-container"
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- issue container -->
+                <section class="p-8 bg-[#ffffff30] shadow-lg ">
+
+                    <!-- all issue container  -->
+                    <section id="all-issue-container" 
                         class="grid grid-cols-1   md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 
                         <!-- card -->
@@ -178,22 +193,39 @@
                         </div> -->
 
 
-                    </div>
+                    </section>
 
 
 
+                    <!-- all issue container  -->
+                    <section id="open-issue-container" class="grid grid-cols-1 hidden  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    
+                       <h1>open issue  </h1>
+    
+                    </section>
 
-                </div>
+
+                    <!-- all issue container  -->
+                     <section id="closed-issue-container"  class="grid grid-cols-1 hidden  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    
+                       <h1>closed issue  </h1>
+    
+                    </section>
+
+                </section>
+
+
 
 
                 <div id="modalContainer">
-                    
+
                     <!-- modal method here -->
                     <!-- Open the modal using ID.showModal() method -->
                     <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
-                    
+
 
                 </div>
+
             </div>
 
 
