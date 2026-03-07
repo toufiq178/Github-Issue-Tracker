@@ -248,7 +248,7 @@ const displayAllIssue = (issues) => {
 
                                 </div>
 
-                                <h3  class="font-semibold text-gray-800 text-sm mt-3 ">
+                                <h3  class="font-semibold text-gray-800 text-sm mt-3 cursor-pointer ">
                                     ${issue.title}
                                 </h3>
                                 <!-- Description -->
