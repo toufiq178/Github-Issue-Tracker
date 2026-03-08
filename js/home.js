@@ -374,19 +374,43 @@ loadAllIssue()
 
 document.getElementById("search-btn").addEventListener("click" , async () => {
     
+    
+    showLoading();
+
+    
     const searchInput = document.getElementById("search-input");
     const searchValue = searchInput.value.toLowerCase().trim();
 
 
-    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
-    const data = await res.json();
+
+    
+    
+    setTimeout(async () => {
+        
+        
+        if (searchValue == "") {
+            
+            displayAllIssue(allIssueData)
+             hideLoading()
+            return
+        } 
+        
+        const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+        const data = await res.json();
+        const allData = data.data
+    
+        // console.log(allData);
+        
+        hideLoading()
+       
+        displayAllIssue(allData) 
+
+    }, 2000);
 
 
-    const allData = data.data
 
-    console.log(allData);
 
-    displayAllIssue(allData) 
+
     
     
 })
